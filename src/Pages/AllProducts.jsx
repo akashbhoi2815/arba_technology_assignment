@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, getData } from "../Redux/App/action";
-import Navbar from "../Component/Navbar";
 import {
   Box,
   Button,
@@ -49,7 +48,6 @@ const AllProducts = () => {
 
   return (
     <Box>
-      <Navbar />
       <Heading size={"lg"} textAlign={"left"} p={"20px"}>
         Products
       </Heading>

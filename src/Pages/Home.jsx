@@ -16,10 +16,10 @@ import {
 import styles from "../Css/home.module.css";
 import { TbMathGreater } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import OpenModal from "../Component/OpenModal";
+
 
 const Home = () => {
- 
-
   const products = useSelector((store) => store.appReducer.products);
   const dispatch = useDispatch();
    const limit = 8;
@@ -29,12 +29,12 @@ const Home = () => {
 
   const cart = useSelector((store) => store.appReducer.cart);
 
-  const increaseQuantity = (id,quantity) => {
+  const increaseQuantity = (id, quantity) => {
     const newQty = +quantity + 1;
     dispatch(addToCart(id, newQty));
   };
 
-  const decreaseQuantity = (id,quantity) => {
+  const decreaseQuantity = (id, quantity) => {
     const newQty = +quantity - 1;
     if (newQty === 0) {
       dispatch(removeItemsFromCart(id, newQty));
@@ -45,16 +45,15 @@ const Home = () => {
 
   const handleCart = (id) => {
     dispatch(addToCart(id, 1));
-   
   };
 
   return (
     <Box>
-      <Navbar />
       <CarouselPage />
       <Heading size={"lg"} textAlign={"left"} p={"20px"}>
         Products
       </Heading>
+      <OpenModal />
       <Box className={styles.product_container}>
         {products.length > 0 &&
           products?.map((el) => (
@@ -80,7 +79,6 @@ const Home = () => {
                   <Text className={styles.text}>{el.description}</Text>
                   <Text><span>Price:</span> Rs.{el.price}</Text>
                   <Button onClick={() => handleCart(el.id)}>Add to cart</Button>
-
                  
                   {cart.length>0 && cart.map((item)=>{
                     return item.id === el.id ?
@@ -115,4 +113,4 @@ const Home = () => {
   );
 };
 
-export default Home
+export default Home;

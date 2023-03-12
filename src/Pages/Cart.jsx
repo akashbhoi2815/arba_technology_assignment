@@ -12,7 +12,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeItemsFromCart } from "../Redux/App/action";
 import styles from "../Css/home.module.css";
-import Navbar from "../Component/Navbar";
 import { MdRemoveShoppingCart } from "react-icons/md";
 import { Link } from "react-router-dom";
 
@@ -38,7 +37,7 @@ const Cart = () => {
 
   return (
     <Box>
-      <Navbar />
+   
 
       <Heading size={"lg"} textAlign={"left"} p={"20px"}>
         My Cart
